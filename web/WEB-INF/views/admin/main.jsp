@@ -9,7 +9,7 @@
 <div class="container">
     <div class="jumbotron">
         <h2>Welcome !</h2>
-        <h5>Your user is : <div class="bg-info"><c:out value="${user}"></c:out></div> and you have password : <div class="bg-info"></div></h5>
+        <h5>Your user is : <div class="bg-info"><c:out value="${user}"></c:out></div> and you have password : <c:out value="${pwd}"></c:out><div class="bg-info"></div></h5>
     </div>
 
 

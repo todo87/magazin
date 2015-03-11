@@ -9,61 +9,85 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <spring.version>4.1.5.RELEASE</spring.version>
-        <mongo.driver>2.13.0</mongo.driver>
-        <spring.data.mongo>1.6.2.RELEASE</spring.data.mongo>
-        <cglib.ver>3.1</cglib.ver>
-        <log4j.ver>1.2.17</log4j.ver>
+        <spring.base.version>4.1.5.RELEASE</spring.base.version>
+        <spring.security.version>3.2.6.RELEASE</spring.security.version>
+        <spring.data.mongo.version>1.6.2.RELEASE</spring.data.mongo.version>
+        <mongo.driver.version>2.13.0</mongo.driver.version>
+        <jstl.verion>1.2</jstl.verion>
+        <cglib.version>3.1</cglib.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
 
+        <!--Spring stuff-->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring.base.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring.base.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring.base.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <!--Spring mongodb-->
 
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
-            <version>${spring.data.mongo}</version>
+            <version>${spring.data.mongo.version}</version>
         </dependency>
+
+        <!--Mongo driver-->
 
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>${mongo.driver}</version>
+            <version>${mongo.driver.version}</version>
         </dependency>
+
+        <!--JSTL-->
 
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${jstl.verion}</version>
         </dependency>
+
+        <!--Stuff-->
 
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>${cglib.ver}</version>
+            <version>${cglib.version}</version>
         </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>${log4j.ver}</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <dependency>
