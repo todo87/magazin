@@ -11,15 +11,15 @@
         <h5>Please login.</h5>
     </div>
 
-    <form action="main" role="form" class="admin_login_center_div" method="post">
+    <form action="${pageContext.request.contextPath}/main" role="form" class="admin_login_center_div" method="post">
 
         <div class="form-group">
-            <label for="user">Email:</label>
-            <input class="form-control" id="user" placeholder="Enter username">
+            <label for="user">User:</label>
+            <input class="form-control" id="user" name="user" placeholder="Enter username">
         </div>
         <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+            <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
 
