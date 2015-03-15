@@ -6,22 +6,40 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AdminController {
 
+    //Spring Security see this :
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin() {
-        return "admin/login";
+    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+                              @RequestParam(value = "logout", required = false) String logout) {
+
+        ModelAndView model = new ModelAndView();
+        if (error != null) {
+            model.addObject("msg", "Invalid username and password!");
+            model.addObject("error",true);
+        }
+
+        if (logout != null) {
+            model.addObject("msg", "You've been logged out successfully.");
+            model.addObject("error",false);
+        }
+        model.setViewName("admin/login");
+
+        return model;
+
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.POST)
-    public String mail(@RequestParam("user") String user,
-                       @RequestParam("pwd") String pwd,
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public String mail(@RequestParam(value = "username", required = false) String user,
+                       @RequestParam(value = "password", required = false) String pwd,
                        Model model) {
 
         model.addAttribute("user",user);
         model.addAttribute("pwd",pwd);
         return "admin/main";
     }
+
 }
