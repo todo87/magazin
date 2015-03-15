@@ -33,12 +33,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String mail(@RequestParam(value = "username", required = false) String user,
-                       @RequestParam(value = "password", required = false) String pwd,
-                       Model model) {
-
-        model.addAttribute("user",user);
-        model.addAttribute("pwd",pwd);
+    public String main() {
         return "admin/main";
     }
 
