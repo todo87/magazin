@@ -6,7 +6,7 @@
     <title>Main admin</title>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <p class="logout_paragraph">Logged as <strong>${pageContext.request.userPrincipal.name}</strong> | <a id="logout_link" onclick="formSubmit()">Logout</a></p>
     <div class="jumbotron">
         <h2>Welcome !</h2>

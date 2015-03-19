@@ -3,20 +3,28 @@ package ro.stefan.appConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import ro.stefan.DAO.UsersAdminDAO;
 
 @Configuration
 @EnableWebMvcSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    UsersAdminDAO usersAdmin;
+
+    @Autowired
+    MongoUserDetailsService mongoUserDetailsService;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("stefan").password("1234").roles("USER");
+        auth.inMemoryAuthentication().withUser("stefan").password("1234").roles("USER");
+        auth.userDetailsService(mongoUserDetailsService);
     }
 
     @Override
@@ -29,7 +37,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/main/**").access("hasRole('ROLE_USER')")
+                .antMatchers("/main/**").access("hasRole('ROLE_ADMIN')")
                 .and()
                 .formLogin().loginPage("/admin").failureUrl("/admin?error")
                 .usernameParameter("username").passwordParameter("password").defaultSuccessUrl("/main")
