@@ -5,7 +5,8 @@
     <title>asdadasdsa</title>
   </head>
   <body>
-<div class="container">
+  <%//TODO rezolvat problema consola angular%>
+<div class="container" ng-app="mainApp">
     <div class="jumbotron text-center">
             <h2>Bootstrap shop</h2>
             <h5>This is a place holder for what will be.</h5>

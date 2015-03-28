@@ -3,4 +3,4 @@
 <script type="text/javascript" src="/res/angular/angular.min.js"></script>
 <script type="text/javascript" src="/res/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/res/bootstrap/css/bootstrap.min.css"></link>
-<link rel="stylesheet" href="/res/custom/custom.css"></link>
+<link rel="stylesheet" href="/res/custom_css/custom.css"></link>

@@ -22,7 +22,7 @@ public class AppConfig {
     }
 
     @Bean
-    public DB mongoClient() throws Exception{ //TODO scote de aici nebunia asta pentru ca face cate o instanta pentru fiecare apelare
+    public DB mongoClient() throws Exception{
         DB db = new MongoClient(new ServerAddress("localhost",27017)).getDB("magazin");
         return db;
     }
