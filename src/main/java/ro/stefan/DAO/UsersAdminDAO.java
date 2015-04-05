@@ -13,11 +13,11 @@ public class UsersAdminDAO {
     DB db;
 
     public DBCursor getAll(){
-       return db.getCollection(MongoStandardCollections.adminUsers).find();
+       return db.getCollection(MongoStandardCollections.getAdminUsers()).find();
     }
 
     public Cursor UserCursor(String user){
         BasicDBObject basicUser = new BasicDBObject("_id",user);
-        return db.getCollection(MongoStandardCollections.adminUsers).find(basicUser).limit(1);
+        return db.getCollection(MongoStandardCollections.getAdminUsers()).find(basicUser).limit(1);
     }
 }

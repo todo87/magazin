@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import ro.stefan.DAO.GenericCollectionDAO;
 import ro.stefan.DAO.UsersAdminDAO;
+import ro.stefan.appConfig.security.MongoUserDetailsService;
 
 
 @Configuration
@@ -35,5 +37,10 @@ public class AppConfig {
     @Bean
     public MongoUserDetailsService mongoUserDetailsService(){
         return new MongoUserDetailsService();
+    }
+
+    @Bean
+    public GenericCollectionDAO genericCollectionDAO(){
+        return new GenericCollectionDAO();
     }
 }

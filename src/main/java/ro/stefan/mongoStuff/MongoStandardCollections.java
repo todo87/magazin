@@ -2,6 +2,9 @@ package ro.stefan.mongoStuff;
 
 public class MongoStandardCollections {
 
-    public static String adminUsers = "adminUsers";
+    private static final String adminUsers = "adminUsers";
 
+    public static String getAdminUsers() {
+        return adminUsers;
+    }
 }

@@ -1,4 +1,4 @@
-package ro.stefan.appConfig;
+package ro.stefan.appConfig.security;
 
 import com.mongodb.Cursor;
 import com.mongodb.DB;
