@@ -16,24 +16,29 @@
                     $.ajax(
                             {url: "${requestScope['javax.servlet.forward.request_uri']}/" + $scope.valueSelected,
                                 success: function(data){
-                                    sharedDataTable.setDataTable(data);
-                                    alert(data);
-
+                                    sharedDataTable.setDataTableProp(data);
                                 }});
                 }
             });
+
     mainAdmin.controller("dataTable",
             function($scope,sharedDataTable) {
 
             });
-    mainAdmin.service("sharedDataTable",function(){
+
+    mainAdmin.service("sharedDataTable",function(){ //TODO de scos alerturile
         var dataTable="";
+        var dataTableKeys="";
         return {
             getDataTable: function () {
                 return dataTable;
             },
-            setDataTable: function(data) {
-                dataTable = data;
+            getdataTableKeys: function () {
+                return dataTableKeys;
+            },
+            setDataTableProp: function(data) {
+                dataTable = data[0];alert(dataTable);
+                dataTableKeys = data[1];alert(dataTableKeys);
             }
         };
     });
@@ -60,8 +65,9 @@
                     </label>
             </div>
         </div>
-        <div id="admin_data_table" class="col-md-10">
-
+        <div id="admin_data_table" class="col-md-10" ng-controller="dataTable">
+            {{dataTable.dataTable}}<br/>
+            {{dataTable.dataTableKeys}}
 
         </div>
 

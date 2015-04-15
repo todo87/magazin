@@ -55,7 +55,9 @@ public class AdminController {
 
     @RequestMapping(value = "/main/{collectionName}", method = RequestMethod.GET)
     public @ResponseBody String mainAjaxDataTable(@PathVariable String collectionName) throws IOException {
-        return genericCollectionDAO.getAllJson(collectionName);
+        String response ;
+        response = "[" + genericCollectionDAO.getAllJson(collectionName) + "," + genericCollectionDAO.getAllKeysJson(collectionName) + "]";
+        return response;
     }
 
 }

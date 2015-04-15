@@ -9,7 +9,7 @@
 .admin_left_menu{
     background-color: #eee;
     border-radius: 6px;
-
+    max-width: 250px;
 }
 .admin_collection_list{
     padding-left: 9px;
